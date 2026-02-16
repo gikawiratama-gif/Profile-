@@ -17,7 +17,7 @@ body{
   overflow:hidden;
 }
 
-/* ===== BACKGROUND 6 LAYER (ULOS) ===== */
+/* BACKGROUND */
 .bg-layer{
   position:absolute;
   left:0;
@@ -29,12 +29,136 @@ body{
   z-index:0;
 }
 
-.bg-layer.layer1{top:0;height:180px;opacity:0.6;filter:blur(1px);}
+.bg-layer.layer1{top:0;height:180px;opacity:0.6;}
 .bg-layer.layer2{top:25%;height:80px;opacity:0.35;}
 .bg-layer.layer3{top:40%;height:80px;opacity:0.35;animation:moveRight 60s linear infinite;}
 .bg-layer.layer4{top:55%;height:80px;opacity:0.35;animation:moveLeft 80s linear infinite;}
 .bg-layer.layer5{top:70%;height:80px;opacity:0.35;}
-.bg-layer.layer6{bottom:0;height:200px;opacity:0.6;filter:blur(1px);}
+.bg-layer.layer6{bottom:0;height:200px;opacity:0.6;}
+
+@keyframes moveRight{
+  from{background-position:0 0;}
+  to{background-position:2000px 0;}
+}
+
+@keyframes moveLeft{
+  from{background-position:2000px 0;}
+  to{background-position:0 0;}
+}
+
+#cover{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:10;
+}
+
+.circle{
+  width:320px;
+  height:320px;
+  border:1px solid rgba(255,215,0,0.5);
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  box-shadow:0 0 60px rgba(255,215,0,0.15);
+}
+
+.title{
+  font-size:13px;
+  letter-spacing:6px;
+  margin-bottom:15px;
+}
+
+.names{
+  font-family:'Playfair Display', serif;
+  font-size:42px;
+  letter-spacing:3px;
+  color:#f5d67b;
+}
+
+.icon-wrapper{
+  margin-top:30px;
+  text-align:center;
+}
+
+.open-icon{
+  width:85px;
+  cursor:pointer;
+}
+
+.icon-text{
+  margin-top:14px;
+  font-family:'Playfair Display', serif;
+  font-size:14px;
+  letter-spacing:4px;
+  color:#f5d67b;
+  text-transform:uppercase;
+}
+
+.ornamen-footer{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  pointer-events:none;
+}
+
+#page2{
+  min-height:100vh;
+  background:#3a0d18;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+</style>
+</head>
+
+<body>
+
+<div id="cover">
+
+  <div class="bg-layer layer1"></div>
+  <div class="bg-layer layer2"></div>
+  <div class="bg-layer layer3"></div>
+  <div class="bg-layer layer4"></div>
+  <div class="bg-layer layer5"></div>
+  <div class="bg-layer layer6"></div>
+
+  <div class="circle">
+    <div class="title">THE WEDDING OF</div>
+    <div class="names">Lusi & Gika</div>
+  </div>
+
+  <div class="icon-wrapper">
+    <img src="Iconopen.png" class="open-icon" onclick="openInvite()">
+    <div class="icon-text">Open Invitation</div>
+  </div>
+
+  <img src="Jawa1.png" class="ornamen-footer">
+
+</div>
+
+<div id="page2">
+  <h2>Save The Date</h2>
+  <p>Sabtu, 12 Desember 2026</p>
+  <p>Lokasi: Jakarta</p>
+</div>
+
+<script>
+function openInvite(){
+  document.getElementById("cover").style.display="none";
+  document.getElementById("page2").style.display="flex";
+}
+</script>
+
+</body>
+</html>.bg-layer.layer6{bottom:0;height:200px;opacity:0.6;filter:blur(1px);}
 
 @keyframes moveRight{
   from{background-position:0 0;}
